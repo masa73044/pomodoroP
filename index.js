@@ -41,11 +41,44 @@ resetButton.addEventListener("click", () => {
   }
 });
 
+function minTimer() {
+  // x
+  minusButton.classList.add("active");
+  setTimeout(() => {
+    minusButton.classList.remove("active");
+  }, "100");
+  timer.remainingTime = timer.remainingTime - 60;
+  startTimer();
+}
+
 minusButton.addEventListener("click", () => {
   buttonSound.play();
+  minusButton.classList.add("active");
+  setTimeout(() => {
+    minusButton.classList.remove("active");
+  }, "100");
 
-  const { action } = minusButton.dataset;
-  if (action === "reset") {
+  // timer.remainingTime = {
+  //   total: 2700,
+  //   minutes: 45,
+  //   seconds: 0,
+  // };
+
+  stopTimer();
+  timer.remainingTime.minutes = timer.remainingTime.minutes - 1;
+
+  updateClock();
+
+  // const minutes = `${remainingTime.minutes - 1}`.padStart(2, "0");
+
+  // const min = document.getElementById("js-minutes");
+  // min.textContent = minutes;
+});
+
+plusButton.addEventListener("click", () => {
+  buttonSound.play();
+  const { action } = resetButton.dataset;
+  if (action === "plus") {
     resetTimer();
   } else {
     stopTimer();
