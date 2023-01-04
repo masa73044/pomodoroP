@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Pomodoro</title>
+  </head>
+  <body>
+    <main class="app">
+      <progress id="js-progress" value="0"></progress>
+      <div class="progress-bar"></div>
+      <br />
+      <div id="gif">
+        <img
+          id="myImg"
+          src="https://s9.gifyu.com/images/giphy-14f302813990cc221.gif"
+          alt="giphy-14f302813990cc221.gif"
+        />
+      </div>
+
+      <div class="timer">
+        <div class="button-group mode-buttons" id="js-mode-buttons">
+          <button
+            data-mode="pomodoro"
+            class="button active mode-button"
+            id="js-pomodoro"
+          >
+            Pomodoro
+          </button>
+          <button
+            data-mode="shortBreak"
+            class="button mode-button"
+            id="js-short-break"
+          >
+            Short break
+          </button>
+          <button
+            data-mode="longBreak"
+            class="button mode-button"
+            id="js-long-break"
+          >
+            Long break
+          </button>
+        </div>
+        <!-- <div data-mode="longBreak" class="button mode-button" id="sessions">
+          Total Sessions
+        </div> -->
+
+        <div class="clock" id="js-clock">
+          <span id="js-minutes">45</span>
+          <span class="separator">:</span>
+          <span id="js-seconds">00</span>
+          <button class="adjustBtn" data-action="plus" id="plusBtn">+</button>
+          <button class="adjustBtn" data-action="minus" id="minusBtn">-</button>
+        </div>
+        <button class="main-button" data-action="start" id="js-btn">
+          Start
+        </button>
+        <button class="main-button" data-action="reset" id="reset-btn">
+          Reset
+        </button>
+      </div>
+    </main>
+    <div class="hidden">
+      <audio src="backtowork.mp3" data-sound="pomodoro"></audio>
+      <audio src="break.mp3" data-sound="shortBreak"></audio>
+      <audio src="break.mp3" data-sound="longBreak"></audio>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
