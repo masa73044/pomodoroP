@@ -24,11 +24,11 @@ mainButton.addEventListener("click", () => {
   }
 });
 
-function updateSessions() {
-  const sessionsDiv = document.getElementById("sessions");
+// function updateSessions() {
+//   const sessionsDiv = document.getElementById("sessions");
 
-  sessionsDiv.textContent = `Total Sessions ${timer.sessions}`;
-}
+//   sessionsDiv.textContent = `Total Sessions ${timer.sessions}`;
+// }
 
 resetButton.addEventListener("click", () => {
   buttonSound.play();
@@ -41,49 +41,39 @@ resetButton.addEventListener("click", () => {
   }
 });
 
-function minTimer() {
-  // x
-  minusButton.classList.add("active");
-  setTimeout(() => {
-    minusButton.classList.remove("active");
-  }, "100");
-  timer.remainingTime = timer.remainingTime - 60;
-  startTimer();
-}
+// function minTimer() {
+//   // x
+//   minusButton.classList.add("active");
+//   setTimeout(() => {
+//     minusButton.classList.remove("active");
+//   }, "100");
+//   timer.remainingTime = timer.remainingTime - 60;
+//   startTimer();
+// }
 
-minusButton.addEventListener("click", () => {
-  buttonSound.play();
-  minusButton.classList.add("active");
-  setTimeout(() => {
-    minusButton.classList.remove("active");
-  }, "100");
+// minusButton.addEventListener("click", () => {
+//   buttonSound.play();
+//   minusButton.classList.add("active");
+//   setTimeout(() => {
+//     minusButton.classList.remove("active");
+//   }, "100");
 
-  // timer.remainingTime = {
-  //   total: 2700,
-  //   minutes: 45,
-  //   seconds: 0,
-  // };
+//   // timer.remainingTime = {
+//   //   total: 2700,
+//   //   minutes: 45,
+//   //   seconds: 0,
+//   // };
 
-  stopTimer();
-  timer.remainingTime.minutes = timer.remainingTime.minutes - 1;
+//   stopTimer();
+//   timer.remainingTime.minutes = timer.remainingTime.minutes - 1;
 
-  updateClock();
+//   updateClock();
 
-  // const minutes = `${remainingTime.minutes - 1}`.padStart(2, "0");
+//   // const minutes = `${remainingTime.minutes - 1}`.padStart(2, "0");
 
-  // const min = document.getElementById("js-minutes");
-  // min.textContent = minutes;
-});
-
-plusButton.addEventListener("click", () => {
-  buttonSound.play();
-  const { action } = resetButton.dataset;
-  if (action === "plus") {
-    resetTimer();
-  } else {
-    stopTimer();
-  }
-});
+//   // const min = document.getElementById("js-minutes");
+//   // min.textContent = minutes;
+// });
 
 function toggleDiv(mode) {
   // for gif
@@ -152,7 +142,6 @@ function startTimer() {
     if (total <= 0) {
       clearInterval(interval);
       toggleDiv();
-      updateSessions();
 
       switch (timer.mode) {
         case "pomodoro":
